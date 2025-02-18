@@ -1,0 +1,116 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .booking-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+   
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+    <script>
+    function done()
+{
+  var txt;
+if(confirm("Are you sure you wan to submit?")){txt="You submitted";}
+ else {txt="You did not submit";}
+document.getElementById("submit").innerHTML = txt;}
+
+    function justanum()
+{let x=document.getElementById("age").value;
+let txt="";
+if(isNaN(x) || x<18 || x>70)
+{
+text="You arent allowed to book a room";document.getElementById("age-message").innerHTML = text;}
+else {text="You can proceed";document.getElementById("age-message").innerHTML = text;}
+}
+
+</script>
+
+<script>
+let rating=prompt("How would rate this platform on a scale of 1-5");
+alert("Thanks for the feedback of " + rating);
+</script>
+</head>
+<body>
+
+<div class="booking-container">
+    <h2>Hotel Booking Form</h2>
+    <form action="submit_booking.php" method="POST">
+ <p>
+        Please enter your details carefully
+    </p>
+     
+    <script>
+        window.onload = function exampleFunction() {
+            console.log('The Script will load now.');
+        }
+    </script>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="age" >Age:</label>
+        <input type="number" id="age" name="age" onchange="justanum()">
+         <div id="age-message" class="age-message"></div>
+        <label for="rooms">Number of Rooms:</label>
+        <select id="rooms" name="rooms">
+            <option value="1">1 Room</option>
+            <option value="2">2 Rooms</option>
+            <option value="3">3 Rooms</option>
+            <option value="4">4 Rooms</option>
+            <option value="5">5+ Rooms</option>
+        </select>
+
+        <label for="amount">Total Amount (in USD):</label>
+        <input type="number" id="amount" name="amount" required>
+
+        <button onclick="done()" type="submit" id="submit" class="submit-btn">Book Now</button>
+    </form>
+</div>
+ 
+</body>
+</html>
